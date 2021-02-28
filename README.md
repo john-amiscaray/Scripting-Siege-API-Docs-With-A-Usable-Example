@@ -1,4 +1,4 @@
-#Getting Started With Coding a Scripting Siege Unit
+# Getting Started With Coding a Scripting Siege Unit
 
 This guide will teach you how to get started writing real code to use for your scripting siege units. By the end of this guide, you will be able to learn to code in javascript by just playing a video game!
 
