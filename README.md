@@ -1,8 +1,8 @@
-###Getting Started With Coding a Scripting Siege Unit
+### Getting Started With Coding a Scripting Siege Unit
 
 This guide will teach you how to get started writing real code to use for your scripting siege units. By the end of this guide, you will be able to learn to code in javascript by just playing a video game!
 
-###How this works
+### How this works
 
 Every turn, the game will send a message with specific data about everything on the grid and the unit whose turn started. This data is in the form of a JSON payload. All it is is some text representing the data in a specific format, specifically in the form of a javascript object. For you to read this data, (or at least in a non-infuriating way) you need to first convert it to a real javascript object and not a text representation of it. Fortunately, it’s as easy as a single line of code:
 ```javascript
@@ -10,7 +10,7 @@ let data = JSON.parse('JSON goes here');
 ```
 With this data, you can analyze it to make the best decision possible for your unit. Once you’ve figured out what you want to do, you will send a message back to the unit telling it what you want them to do. But, if the game does not recognize what move your code is telling it to perform, then your unit will just wait around confused about what you told them. The same is true if you tell it to perform an action that is not possible like attacking when nothing is in range. As well, you need to make sure you are sending one message at a time. If you try to cheat the system and send multiple messages for one turn the game will only accept the first one. Also, if your code takes too long to return an action then your unit will just wait. In the heat of the battle, your unit can't wait for you forever! As a last note for the more knowledgeable or curious among you, the code you will be writing is for the game to create a [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers#web_workers_api). Although you don’t have to necessarily understand Web Workers to write your own code for this game.
 
-###Receiving and Sending messages
+### Receiving and Sending messages
 
 In your code, you need to provide a function (a collection of related code) to perform whenever you receive a message. Within the function, you would post a message back to the server using the `postMessage` function with text representing the action. For example, you use a code file that looks something like this:
 
@@ -23,7 +23,7 @@ this.onmessage = function (turnEvent){
 ```
 Here, whenever we get a message indicating it’s our unit’s turn, we just tell it to go forward.
 
-###Reading Message Data
+### Reading Message Data
 
 In the code example above, you will notice in our function there is something called `turnEvent` in brackets. This indicates that our function will take the game data as an object called `turnEvent`. Within the `turnEvent` object is the data the game gives you about the state of the game. Recall that the data sent is in the form of JSON and we need to first convert it to a javascript object to more easily read it. We would so like this:
 
@@ -129,7 +129,7 @@ First, we get the grid data within the data object. This grid data is a list of 
 | strength    | The strength of the unit (A number. How much damage it can deal in a single attack).                            |
 | attackRange | How many tiles in any direction a unit can attack (number).                                                     |
 
-###Sending Back a Response
+### Sending Back a Response
 
 Once you’ve decided what you want your unit to do, you have to post a message back to it to tell it about it. You would do this by simply calling the `postMessage` function like so:
 
@@ -147,7 +147,7 @@ Remember that the game only accepts a set of recognized actions that you can sen
 | North    | Walk one tile North. If the tile is occupied by another unit or the area is out of bounds wait. |
 | South    | Walk one tile South. If the tile is occupied by another unit or the area is out of bounds wait. |
 
-###Conclusion
+### Conclusion
 
 In this guide, we went over all you need to know to start coding the behavior of your scripting siege units. With this knowledge, you will be able to write more complex custom behavior to your units to perform better in the game and learn to code in the process. You can find some example code to get you started [here](INSERT_LINK_HERE). Good luck and have fun!
 
