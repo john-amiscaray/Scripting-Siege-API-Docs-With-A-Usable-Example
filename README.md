@@ -1,3 +1,5 @@
+This repo is a guide to go with the following [application](https://github.com/KyleDulce/ScriptingSiege).
+
 ###Getting Started With Coding a Scripting Siege Unit
 
 This guide will teach you how to get started writing real code to use for your scripting siege units. By the end of this guide, you will be able to learn to code in javascript by just playing a video game!
